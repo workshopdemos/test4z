@@ -1,0 +1,14 @@
+{
+  "cobol-lsp.cpy-manager.paths-local": [
+    "/usr/lib/node_modules/@broadcom/test4z-framework/cobol_api/cpy",
+    "src/cpy"
+  ],
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "test4z.*.config.json"
+      ],
+      "url": "file:///usr/lib/node_modules/@broadcom/test4z-framework/schema/test4z.config.json"
+    }
+  ]
+}

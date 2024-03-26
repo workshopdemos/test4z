@@ -1,0 +1,12 @@
+# Ignore Test4z files
+build-out/
+coverage/
+.DS_Store
+machine-coverage/
+node_modules/
+test-out/
+test4z_node_report.json
+.t4z-capture/
+src-gen/
+.nycrc.json
+package-lock.json
