@@ -1,321 +1,321 @@
 {
-    "codepage": 1140,
-    "ignorelist": [],
-    "calls": [
-        {
-            "program": {
-                "command": "CALL",
-                "module": "ZTPDOGOS",
+  "codepage": 1140,
+  "ignorelist": [],
+  "calls": [
+    {
+      "program": {
+        "command": "CALL",
+        "module": "ZTPDOGOS",
+        "csect": "ZTPDOGOS",
+        "before": {},
+        "calls": [
+          {
+            "qsam": {
+              "command": "OPEN INPUT",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
                 "csect": "ZTPDOGOS",
-                "before": {},
-                "calls": [
-                    {
-                        "qsam": {
-                            "command": "OPEN INPUT",
-                            "module": "ZTPDOGOS",
-                            "dd": "ADOPTS",
-                            "before": {},
-                            "cputime": "0.000000",
-                            "from": {
-                                "csect": "ZTPDOGOS",
-                                "offset": "00000716"
-                            },
-                            "after": {
-                                "cc": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status1": {
-                                    "length": 2,
-                                    "value": "00"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "qsam": {
-                            "command": "OPEN OUTPUT",
-                            "module": "ZTPDOGOS",
-                            "dd": "OUTREP",
-                            "before": {},
-                            "cputime": "0.000000",
-                            "from": {
-                                "csect": "ZTPDOGOS",
-                                "offset": "000007D0"
-                            },
-                            "after": {
-                                "cc": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status1": {
-                                    "length": 2,
-                                    "value": "00"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "qsam": {
-                            "command": "READ",
-                            "module": "ZTPDOGOS",
-                            "dd": "ADOPTS",
-                            "before": {},
-                            "cputime": "0.000000",
-                            "from": {
-                                "csect": "ZTPDOGOS",
-                                "offset": "0000087C"
-                            },
-                            "after": {
-                                "cc": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status1": {
-                                    "length": 2,
-                                    "value": "00"
-                                },
-                                "ioarea": {
-                                    "length": 58,
-                                    "value": [
-                                        "SHIBA",
-                                        {
-                                            "repeat": 50,
-                                            "data": " "
-                                        },
-                                        "006"
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "qsam": {
-                            "command": "READ",
-                            "module": "ZTPDOGOS",
-                            "dd": "ADOPTS",
-                            "before": {},
-                            "cputime": "0.000000",
-                            "from": {
-                                "csect": "ZTPDOGOS",
-                                "offset": "0000087C"
-                            },
-                            "after": {
-                                "cc": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status1": {
-                                    "length": 2,
-                                    "value": "00"
-                                },
-                                "ioarea": {
-                                    "length": 58,
-                                    "value": [
-                                        "CORGI",
-                                        {
-                                            "repeat": 50,
-                                            "data": " "
-                                        },
-                                        "007"
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "qsam": {
-                            "command": "READ",
-                            "module": "ZTPDOGOS",
-                            "dd": "ADOPTS",
-                            "before": {},
-                            "cputime": "0.000000",
-                            "from": {
-                                "csect": "ZTPDOGOS",
-                                "offset": "0000087C"
-                            },
-                            "after": {
-                                "cc": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status1": {
-                                    "length": 2,
-                                    "value": "00"
-                                },
-                                "ioarea": {
-                                    "length": 58,
-                                    "value": [
-                                        "CHI",
-                                        {
-                                            "repeat": 52,
-                                            "data": " "
-                                        },
-                                        "001"
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "qsam": {
-                            "command": "READ",
-                            "module": "ZTPDOGOS",
-                            "dd": "ADOPTS",
-                            "before": {},
-                            "cputime": "0.000000",
-                            "from": {
-                                "csect": "ZTPDOGOS",
-                                "offset": "0000087C"
-                            },
-                            "after": {
-                                "cc": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status1": {
-                                    "length": 2,
-                                    "value": "00"
-                                },
-                                "ioarea": {
-                                    "length": 58,
-                                    "value": [
-                                        "SHIBA",
-                                        {
-                                            "repeat": 50,
-                                            "data": " "
-                                        },
-                                        "002"
-                                    ]
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "qsam": {
-                            "command": "READ",
-                            "module": "ZTPDOGOS",
-                            "dd": "ADOPTS",
-                            "before": {},
-                            "cputime": "0.000000",
-                            "from": {
-                                "csect": "ZTPDOGOS",
-                                "offset": "0000087C"
-                            },
-                            "after": {
-                                "cc": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status": {
-                                    "length": 1,
-                                    "value": {
-                                        "hex": true,
-                                        "data": "00"
-                                    }
-                                },
-                                "status1": {
-                                    "length": 2,
-                                    "value": "00"
-                                },
-                                "ioarea": {
-                                    "length": 58,
-                                    "value": [
-                                        "JINGO",
-                                        {
-                                            "repeat": 50,
-                                            "data": " "
-                                        },
-                                        "006"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                ],
-                "cputime": "5.026474",
-                "from": {
-                    "csect": "UNKNOWN",
-                    "offset": "0000038A"
+                "offset": "000006F2"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
                 },
-                "retcd": 0,
-                "after": {}
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
             }
-        }
-    ],
-    "qsamdata": {
-        "qsamlist": [
-            {
-                "file": "ADOPTS",
-                "maxlength": 79
-            },
-            {
-                "file": "OUTREP",
-                "maxlength": 80
+          },
+          {
+            "qsam": {
+              "command": "OPEN OUTPUT",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "000007AC"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
             }
-        ]
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000858"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "SHIBA",
+                    {
+                      "repeat": 50,
+                      "data": " "
+                    },
+                    "006                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000858"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "CORGI",
+                    {
+                      "repeat": 50,
+                      "data": " "
+                    },
+                    "007                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000858"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "CHI",
+                    {
+                      "repeat": 52,
+                      "data": " "
+                    },
+                    "001                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000858"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "SHIBA",
+                    {
+                      "repeat": 50,
+                      "data": " "
+                    },
+                    "002                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000858"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "JINGO",
+                    {
+                      "repeat": 50,
+                      "data": " "
+                    },
+                    "006                      "
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "cputime": "6.368652",
+        "from": {
+          "csect": "UNKNOWN",
+          "offset": "0000038A"
+        },
+        "retcd": 0,
+        "after": {}
+      }
     }
+  ],
+  "qsamdata": {
+    "qsamlist": [
+      {
+        "file": "ADOPTS",
+        "maxlength": 80
+      },
+      {
+        "file": "OUTREP",
+        "maxlength": 80
+      }
+    ]
+  }
 }

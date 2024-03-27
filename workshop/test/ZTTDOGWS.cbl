@@ -96,6 +96,7 @@
                      statusCode in ZLS_QSAM_Record = '00'
                 
                 DISPLAY 'See workshop step 3.2'
+
                 add 1 to OUTREP_SPY_WRITE_COUNT
 
       * Write the output record to SYSOUT for unit test debugging.
@@ -119,6 +120,7 @@
        mockOUTREPFile.
 
            DISPLAY 'See workshop step 1.1 and step 1.2'
+
            move low-values to I_MockQSAM
            move 'OUTREP' to fileName in ZWS_MockQSAM
            move 80 to recordSize in ZWS_MockQSAM
@@ -134,6 +136,7 @@
       * Load data from a previous "live" recording.
 
            DISPLAY 'See workshop step 1.3'
+
            move low-values to I_LoadData
            move 'ZTPDOGOS' to memberName in ZWS_LoadData
            call ZTESTUT using ZWS_LoadData, loadObject in LOAD_Data
@@ -142,6 +145,7 @@
       * with the load object (data) created above.
 
            DISPLAY 'See workshop step 1.4'
+
            move low-values to I_MockQSAM
            move 'ADOPTS' to fileName in ZWS_MockQSAM
            set loadObject in ZWS_MockQSAM to loadObject in LOAD_Data
@@ -156,6 +160,7 @@
        registerOUTREPFileSpy.
 
            DISPLAY 'See workshop step 2.1 and step 2.2'
+           
            move low-values to I_SpyQSAM
            set callback in ZWS_SpyQSAM to entry 'spyCallbackOUTREP'
            move 'OUTREP' to fileName in ZWS_SpyQSAM
@@ -228,7 +233,6 @@
        failOutrepWriteCount.
 
            DISPLAY 'OUTREP record count is ' OUTREP_SPY_WRITE_COUNT.
-
            move low-values to I_Assert in ZWS_Assert
            move 'Invalid OUTREP count from ZTTDOGWS'
                 to failMessage in ZWS_Assert
