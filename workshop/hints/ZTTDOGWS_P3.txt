@@ -120,6 +120,7 @@
        mockOUTREPFile.
 
            display 'See workshop step 1.1 and step 1.2 (MOCK OUTREP)'
+           
            move low-values to I_MockQSAM
            move 'OUTREP' to fileName in ZWS_MockQSAM
            move 80 to recordSize in ZWS_MockQSAM
