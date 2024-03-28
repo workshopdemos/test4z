@@ -96,7 +96,6 @@
                      statusCode in ZLS_QSAM_Record = '00'
 
                 display 'See workshop step 3.2 (SPY CALLBACK WRITE)'
-                add 1 to OUTREP_SPY_WRITE_COUNT
 
       * Write the output record to SYSOUT for unit test debugging.
                 set address of ADOPTED-REPORT-REC
@@ -121,10 +120,6 @@
        mockOUTREPFile.
 
            display 'See workshop step 1.1 and step 1.2 (MOCK OUTREP)'
-           move low-values to I_MockQSAM
-           move 'OUTREP' to fileName in ZWS_MockQSAM
-           move 80 to recordSize in ZWS_MockQSAM
-           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_OUTREP.
 
            exit.
 
@@ -136,19 +131,11 @@
       * Load data from a previous "live" recording.
 
            display 'See workshop step 1.3 (LOAD RECORDED DATA)'
-           move low-values to I_LoadData
-           move 'ZTPDOGOS' to memberName in ZWS_LoadData
-           call ZTESTUT using ZWS_LoadData, loadObject in LOAD_Data
 
       * Initialize QSAM file access mock object for the ADOPTS DD
       * with the load object (data) created above.
 
            display 'See workshop step 1.4 (MOCK ADOPTS)'
-           move low-values to I_MockQSAM
-           move 'ADOPTS' to fileName in ZWS_MockQSAM
-           set loadObject in ZWS_MockQSAM to loadObject in LOAD_Data
-           move 80 to recordSize in ZWS_MockQSAM
-           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_ADOPTS.
 
            exit.
 
@@ -158,10 +145,6 @@
        registerOUTREPFileSpy.
 
            display 'See workshop step 2.1 and step 2.2 (REGISTER SPY)'
-           move low-values to I_SpyQSAM
-           set callback in ZWS_SpyQSAM to entry 'spyCallbackOUTREP'
-           move 'OUTREP' to fileName in ZWS_SpyQSAM
-           call ZTESTUT using ZWS_SpyQSAM, qsamSpyObject in OUTREP_SPY.
 
            exit.
 
