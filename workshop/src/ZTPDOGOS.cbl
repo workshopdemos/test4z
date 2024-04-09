@@ -1,246 +1,222 @@
-       PROCESS PGMN(LM),NODYNAM
        IDENTIFICATION DIVISION.
-       PROGRAM-ID. 'ZTTDOGWS' RECURSIVE.
+       PROGRAM-ID. ZTPDOGOS.
+       ENVIRONMENT DIVISION.
+       INPUT-OUTPUT SECTION.
+       FILE-CONTROL.
+           SELECT ADOPTS-INPUT ASSIGN ADOPTS
+           ORGANIZATION IS SEQUENTIAL
+           ACCESS MODE IS SEQUENTIAL
+           FILE STATUS IS ADOPTIONS-FS.
+           SELECT ADOPTS-REPORT ASSIGN OUTREP
+           ORGANIZATION IS SEQUENTIAL
+           ACCESS MODE IS SEQUENTIAL
+           FILE STATUS IS ADOPTIONS-FS.
        DATA DIVISION.
+       FILE SECTION.
+       FD ADOPTS-INPUT
+           LABEL RECORDS ARE STANDARD
+           RECORD CONTAINS 80 CHARACTERS
+           DATA RECORD IS ADOPTED-DOGS-REC.
+      * INPUT RECORD FORMAT
+       COPY ZTPDGADR.
+       FD ADOPTS-REPORT
+           LABEL RECORDS ARE STANDARD
+           RECORD CONTAINS 80 CHARACTERS
+           DATA RECORD IS ADOPTED-REPORT-REC.
+      * OUTPUT RECORD FORMAT
+       COPY ZTPDGARR.
        WORKING-STORAGE SECTION.
-
-      * Copy in API control blocks from Test4z.
-       COPY ZTESTWS.
-
-      * Copy return value control block for ZWS_LoadData API.
-      * It loads data from previous "live" recording.
-       1 LOAD_Data.
-         COPY ZDATA.
-
-      * Copy return value control block for ZWS_MockQSAM API.
-      * Mocks ADOPTS reads from DD with previous "live" recording.
-       1 MOCK_ADOPTS.
-         COPY ZQSAM.
-
-      * Copy return value control block for ZWS_MockQSAM API.
-      * Mocks OUTREP writes to DD.
-       1 MOCK_OUTREP.
-         COPY ZQSAM.
-
-      * Copy return value control block for ZWS_SpyQSAM API.
-      * Spies on OUTREP file modifications (which is also mocked).
-       1 OUTREP_SPY.
-         COPY ZSPQSAM.
-
-      * Count of WRITE commands from ZWS_SpyQSAM callback for OUTREP.
-       1 OUTREP_SPY_WRITE_COUNT PIC 9(3) VALUE ZERO.
-
-       LINKAGE SECTION.
-
-      * Copy in required control blocks from Test4z.
-       COPY ZTESTLS.
-
-      * Incoming parameter from ZWS_SpyQSAM callback.
-       1 SPY_CALLBACK_OUTREP.
-         COPY ZSPQSAM.
-
-      * Reference to ZTPDOGOS accumulator retrived via ZWS_GetVariable.
-       1 ZTPDOGOS-ACCUMULATOR.
-           5 BREED-ADOPTIONS PIC 9(3) OCCURS 9 TIMES.
-
-      * Reference to ZTPDOGOS record from ZWS_SpyQSAM callback.
-      * (ADOPTED-REPORT-REC)
-           COPY ZTPDGARR.
+      * INPUT RECORDS FILE STATUS
+       01  ADOPTIONS-FS PIC 9(2).
+       01  END-OF-INPUT PIC 9(1) VALUE 0.
+       01  END-OF-FILE  PIC 9(1) VALUE 1.
+      * OUTPUT REPORT FILE STATUS
+       01  ADOPT-REPORT-FS PIC 9(2).
+       COPY ZTPDGCDT.
+      * INTERNAL ACCUMULATOR FOR EACH BREED
+       01 BREED-INDEXES.
+           05 SHIBA-INDEX.
+               10 SHIBA-INDEX-VALUE  PIC 9(1) VALUE 1.
+               10 SHIBA-BREED-NAME PIC X(5) VALUE 'SHIBA'.
+           05 SCHNAUZER-INDEX.
+               10 SCHNAUZER-INDEX-VALUE  PIC 9(1) VALUE 2.
+               10 SCHNAUZER-BREED-NAME PIC X(9) VALUE 'SCHNAUZER'.
+           05 CORGI-INDEX.
+               10 CORGI-INDEX-VALUE  PIC 9(1) VALUE 3.
+               10 CORGI-BREED-NAME PIC X(5) VALUE 'CORGI'.
+           05 CHI-INDEX.
+               10 CHI-INDEX-VALUE  PIC 9(1) VALUE 4.
+               10 CHI-BREED-NAME PIC X(3) VALUE 'CHI'.
+           05 POODLE-INDEX.
+               10 POODLE-INDEX-VALUE PIC 9(1) VALUE 5.
+               10 POODLE-BREED-NAME PIC X(6) VALUE 'POODLE'.
+           05 POMERANIAN-INDEX.
+               10 POMERANIAN-INDEX-VALUE PIC 9(1) VALUE 6.
+               10 POMERANIAN-BREED-NAME PIC X(10) VALUE 'POMERANIAN'.
+           05 BULLDOG-INDEX.
+               10 BULLDOG-INDEX-VALUE PIC 9(1) VALUE 7.
+               10 BULLDOG-BREED-NAME PIC X(7) VALUE 'BULLDOG'.
+           05 JINGO-INDEX.
+               10 JINGO-INDEX-VALUE PIC 9(1) VALUE 8.
+               10 JINGO-BREED-NAME PIC X(5) VALUE 'JINGO'.
+           05 OTHER-INDEX.
+               10 OTHER-INDEX-VALUE  PIC 9(1) VALUE 9.
+               10 OTHER-BREED-NAME PIC X(5) VALUE 'OTHER'.
+      * INTERNAL DATA STRUCTURE TO KEEP
+      * THE AMOUNT OF ADOPTIONS PER BREED
+       01 ACCUMULATOR.
+           05 BREED-ADOPTIONS PIC 9(3) OCCURS 9 TIMES VALUE 000.
+      * FINAL DATA STRUCTURE TO FLUSH THE ADOPTIONS IN THE PARTICULAR
+      * BREED INTO THE REPORT
+       01  ADOPTED-RESULT.
+           05 FILLER                 PIC X(6) VALUE "BREED ".
+           05 DOG-BREED              PIC X(30).
+           05 FILLER                 PIC X(13) VALUE " WAS ADOPTED ".
+           05 ADOPTED-AMOUNT         PIC 9(3).
+           05 FILLER                 PIC X(6) VALUE " TIMES".
+           05 FILLER                 PIC X(22).
 
        PROCEDURE DIVISION.
+           PERFORM PRINT-WELCOME.
+           PERFORM OPEN-INPUT.
+           PERFORM OPEN-OUTPUT.
+      * READ THE INPUT UNTIL THE END AND UPDATE INTERNAL DATA STRUCTURE
+           PERFORM READ-ADOPTION.
+           PERFORM UNTIL END-OF-INPUT IS EQUAL TO END-OF-FILE
+                PERFORM UPDATE-ACCUMULATOR
+                PERFORM READ-ADOPTION
+           END-PERFORM.
 
-      ******************************************************************
-      * Register test to be run (only one in this simple example).
-      ******************************************************************
-           move low-values to I_Test
-           set testFunction in ZWS_Test to entry 'outrepTotalsUnitTest'
-           move 'ZTTDOGWS simple totals test' to testName in ZWS_Test
-           call ZTESTUT using ZWS_Test
+      * WRITE EACH BREED RESULTS INTO THE FINAL REPORT
+           MOVE SHIBA-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(SHIBA-INDEX-VALUE)
+               TO ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-      * Note: Test4z will call 'outrepTotalsUnitTest' after the SUT
-      * is prepared (see runZTPDOGOS for more details).
+           MOVE SCHNAUZER-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(SCHNAUZER-INDEX-VALUE)
+               TO ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-           goback.
+           MOVE CORGI-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(CORGI-INDEX-VALUE)
+               TO ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-      ******************************************************************
-      * Unit test called by Test4z test suite runner.
-      ******************************************************************
-           entry 'outrepTotalsUnitTest'
+           MOVE CHI-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(CHI-INDEX-VALUE)
+               TO ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-           perform mockADOPTSFile
-           perform mockOUTREPFile
-           perform registerOUTREPFileSpy
-           perform runZTPDOGOS
+           MOVE POODLE-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(POODLE-INDEX-VALUE)
+               TO ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-           goback.
+           MOVE POMERANIAN-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(POMERANIAN-INDEX-VALUE) TO
+                ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-      ******************************************************************
-      * QSAM spy callback for OUTREP file.
-      ******************************************************************
-           entry 'spyCallbackOUTREP' using SPY_CALLBACK_OUTREP.
+           MOVE BULLDOG-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(BULLDOG-INDEX-VALUE) TO
+                ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-           display 'See workshop step 3.1 (SPY CALLBACK)'
+           MOVE JINGO-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(JINGO-INDEX-VALUE)
+               TO ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-      * Map the linkage section to the address of the last record.
-      *
-      * (NB: The SPY_CALLBACK_OUTREP field 'calls' has all middleware
-      * calls recorded so far, but we're only interested in the
-      * last one; that's recorded in the field 'lastCall').
+           MOVE OTHER-BREED-NAME TO DOG-BREED IN ADOPTED-RESULT.
+           MOVE BREED-ADOPTIONS(OTHER-INDEX-VALUE)
+               TO ADOPTED-AMOUNT IN ADOPTED-RESULT.
+           MOVE ADOPTED-RESULT TO ADOPTED-REPORT-REC.
+           PERFORM WRITE-ADOPTION-BREED-REPORT.
 
-           set address of ZLS_QSAM_Record to
-                lastCall in SPY_CALLBACK_OUTREP
+           PERFORM CLOSE-INPUT.
+           PERFORM CLOSE-OUTPUT.
 
-      * For a simple validation, we're only interested in valid WRITEs.
+           STOP RUN.
 
-           if command in ZLS_QSAM_Record = 'WRITE' and
-                     statusCode in ZLS_QSAM_Record = '00'
+       PRINT-WELCOME.
+           DISPLAY "THIS PROGRAM WILL TOTAL ADOPTED ZTPDOGOS BY BREED".
+           MOVE FUNCTION CURRENT-DATE TO CURR-DATE.
+           DISPLAY "TODAY IS : " CURR-DATE.
 
-                display 'See workshop step 3.2 (SPY CALLBACK WRITE)'
+       OPEN-INPUT.
+           OPEN INPUT ADOPTS-INPUT.
+           IF ADOPTIONS-FS IS EQUAL TO 35
+               DISPLAY "CANNOT OPEN INPUT FILE"
+               STOP RUN
+           END-IF.
 
-                add 1 to OUTREP_SPY_WRITE_COUNT
+       OPEN-OUTPUT.
+           OPEN OUTPUT ADOPTS-REPORT.
+           IF ADOPT-REPORT-FS IS EQUAL TO 35
+               DISPLAY "CANNOT OPEN OUTPUT FILE"
+               STOP RUN
+           END-IF.
 
-      * Write the output record to SYSOUT for unit test debugging.
-                set address of ADOPTED-REPORT-REC
-                   to ptr in record_ in ZLS_QSAM_Record
-                display ADOPTED-REPORT-REC
+       READ-ADOPTION.
+           READ ADOPTS-INPUT.
+           IF ADOPTIONS-FS IS EQUAL TO 10
+               MOVE 1 TO END-OF-INPUT
+           END-IF.
+           IF ADOPTIONS-FS IS NOT EQUAL TO 00 AND NOT EQUAL TO 10
+               DISPLAY "CANNOT READ RECORD PROPERLY: " ADOPTIONS-FS
+               STOP RUN
+           END-IF.
 
-           end-if
+       UPDATE-ACCUMULATOR.
+      * WHEN PARTICULAR DOG BREED COMES - UPDATE THE ACCUMULATOR FOR IT
+           EVALUATE INP-DOG-BREED
+                WHEN SHIBA-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(SHIBA-INDEX-VALUE)
+                WHEN SCHNAUZER-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(SCHNAUZER-INDEX-VALUE)
+                WHEN CHI-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(CHI-INDEX-VALUE)
+                WHEN CORGI-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(CORGI-INDEX-VALUE)
+                WHEN POODLE-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(POODLE-INDEX-VALUE)
+                WHEN POMERANIAN-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(POMERANIAN-INDEX-VALUE)
+                WHEN BULLDOG-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(BULLDOG-INDEX-VALUE)
+                WHEN JINGO-BREED-NAME
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(JINGO-INDEX-VALUE)
+                WHEN OTHER
+                ADD INP-ADOPTED-AMOUNT
+                    TO BREED-ADOPTIONS(OTHER-INDEX-VALUE)
+           END-EVALUATE.
 
-      * When the file is closed, verify ZTPDOGOS' internal acculator.
+       WRITE-ADOPTION-BREED-REPORT.
+           WRITE ADOPTED-REPORT-REC.
+           IF ADOPT-REPORT-FS IS NOT EQUAL TO 00
+               DISPLAY "CANNOT WRITE RECORD PROPERLY: " ADOPT-REPORT-FS
+               STOP RUN
+           END-IF.
 
-           if command in ZLS_QSAM_RECORD = 'CLOSE'
-                display 'See workshop step 3.2 (SPY CALLBACK CLOSE)'
+       CLOSE-INPUT.
+           CLOSE ADOPTS-INPUT.
 
-                perform validateResults
-           end-if
-
-           goback.
-
-      ******************************************************************
-      * Mock the OUTREP QSAM output file (no need to load data for it).
-      ******************************************************************
-       mockOUTREPFile.
-
-           display 'See workshop step 1.1 and step 1.2 (MOCK OUTREP)'
-
-           move low-values to I_MockQSAM
-           move 'OUTREP' to fileName in ZWS_MockQSAM
-           move 80 to recordSize in ZWS_MockQSAM
-           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_OUTREP.
-
-           exit.
-
-      ******************************************************************
-      * Load data for ADOPTS file from previous recording and mock it.
-      ******************************************************************
-       mockADOPTSFile.
-
-      * Load data from a previous "live" recording.
-
-           display 'See workshop step 1.3 (LOAD RECORDED DATA)'
-
-           move low-values to I_LoadData
-           move 'ZTPDOGOS' to memberName in ZWS_LoadData
-           call ZTESTUT using ZWS_LoadData, loadObject in LOAD_Data
-
-      * Initialize QSAM file access mock object for the ADOPTS DD
-      * with the load object (data) created above.
-
-           display 'See workshop step 1.4 (MOCK ADOPTS)'
-
-           move low-values to I_MockQSAM
-           move 'ADOPTS' to fileName in ZWS_MockQSAM
-           set loadObject in ZWS_MockQSAM to loadObject in LOAD_Data
-           move 80 to recordSize in ZWS_MockQSAM
-           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_ADOPTS.
-
-           exit.
-
-      ******************************************************************
-      * Register a QSAM spy callback for changes in the OUTREP file.
-      ******************************************************************
-       registerOUTREPFileSpy.
-
-           display 'See workshop step 2.1 and step 2.2 (REGISTER SPY)'
-
-           move low-values to I_SpyQSAM
-           set callback in ZWS_SpyQSAM to entry 'spyCallbackOUTREP'
-           move 'OUTREP' to fileName in ZWS_SpyQSAM
-           call ZTESTUT using ZWS_SpyQSAM, qsamSpyObject in OUTREP_SPY.
-
-           exit.
-
-      ******************************************************************
-      * Run the ZTPDOGOS program.
-      ******************************************************************
-       runZTPDOGOS.
-
-           move low-values to I_RunFunction
-           move 'ZTPDOGOS' to moduleName in ZWS_RunFunction
-           call ZTESTUT using ZWS_RunFunction.
-
-           exit.
-
-      ******************************************************************
-      * Validate OUTREP writes and ZTPDOGOS internal acculator values.
-      ******************************************************************
-       validateResults.
-
-      * Black box test - confirm the correct number of OUTREP records.
-
-           display 'See workshop step 3.3 (VALIDATE OUTREP)'
-
-           if OUTREP_SPY_WRITE_COUNT not = 9 then
-             perform failOutrepWriteCount
-           end-if
-
-      * Gray box test - get access to ZTPDOGOS' internal accumulator.
-
-           display 'See workshop step 3.4 (VALIDATE ACCUMULATOR)'
-
-           move low-values to I_GetVariable
-           move 'ACCUMULATOR' to variableName in ZWS_GetVariable
-           call ZTESTUT using ZWS_GetVariable,
-                address of ZTPDOGOS-ACCUMULATOR
-
-      * Check accumulator values, assert fail if an incorrect total.
-
-           if BREED-ADOPTIONS(1) not = 8 or
-                     BREED-ADOPTIONS(2) not = 0 or
-                     BREED-ADOPTIONS(3) not = 7 or
-                     BREED-ADOPTIONS(4) not = 1 or
-                     BREED-ADOPTIONS(5) not = 0 or
-                     BREED-ADOPTIONS(6) not = 0 or
-                     BREED-ADOPTIONS(7) not = 0 or
-                     BREED-ADOPTIONS(8) not = 6 or
-                     BREED-ADOPTIONS(9) not = 0 then
-                perform failInternalAccumulator
-           end-if
-
-           exit.
-
-      ******************************************************************
-      * Signal failure checking the internal ZTPDOGOS accumulator.
-      ******************************************************************
-       failInternalAccumulator.
-
-           display 'Invalid accumulator value(s) ' ZTPDOGOS-ACCUMULATOR
-           move low-values to I_Assert in ZWS_Assert
-           move 'Invalid accumulator value(s) from ZTPDOGOS'
-                to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert.
-
-           exit.
-
-      ******************************************************************
-      * Signal failure of expected count of OUTREP records.
-      ******************************************************************
-       failOutrepWriteCount.
-
-           display 'OUTREP record count is ' OUTREP_SPY_WRITE_COUNT.
-           move low-values to I_Assert in ZWS_Assert
-           move 'Invalid OUTREP count from ZTTDOGWS'
-                to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert.
-
-       END PROGRAM 'ZTTDOGWS'.
+       CLOSE-OUTPUT.
+           CLOSE ADOPTS-REPORT.
