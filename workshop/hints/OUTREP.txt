@@ -1,0 +1,8 @@
+BREED SHIBA                          WAS ADOPTED 008 TIMES
+BREED SCHNAUZER                      WAS ADOPTED 000 TIMES
+BREED CORGI                          WAS ADOPTED 007 TIMES
+BREED POODLE                         WAS ADOPTED 001 TIMES
+BREED POMERANIAN                     WAS ADOPTED 000 TIMES
+BREED BULLDOG                        WAS ADOPTED 000 TIMES
+BREED JINGO                          WAS ADOPTED 006 TIMES
+BREED OTHER                          WAS ADOPTED 000 TIMES
