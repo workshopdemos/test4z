@@ -121,6 +121,11 @@
 
            display 'See workshop step 1.1 and step 1.2 (#MOCKOUTREP)'
 
+           move low-values to I_MockQSAM
+           move 'OUTREP' to fileName in ZWS_MockQSAM
+           move 80 to recordSize in ZWS_MockQSAM
+           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_OUTREP.
+
            exit.
 
       ******************************************************************
@@ -132,10 +137,20 @@
 
            display 'See workshop step 1.3 (#LOADRECORDED)'
 
+           move low-values to I_LoadData
+           move 'ZTPDOGOS' to memberName in ZWS_LoadData
+           call ZTESTUT using ZWS_LoadData, loadObject in LOAD_Data
+
       * Initialize QSAM file access mock object for the ADOPTS DD
       * with the load object (data) created above.
 
            display 'See workshop step 1.4 (#MOCKADOPTS)'
+
+           move low-values to I_MockQSAM
+           move 'ADOPTS' to fileName in ZWS_MockQSAM
+           set loadObject in ZWS_MockQSAM to loadObject in LOAD_Data
+           move 80 to recordSize in ZWS_MockQSAM
+           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_ADOPTS.
 
            exit.
 
@@ -146,6 +161,11 @@
 
            display 'See workshop step 2.1 and step 2.2 (#REGISTERSPY)'
 
+           move low-values to I_SpyQSAM
+           set callback in ZWS_SpyQSAM to entry 'spyCallbackOUTREP'
+           move 'OUTREP' to fileName in ZWS_SpyQSAM
+           call ZTESTUT using ZWS_SpyQSAM, qsamSpyObject in OUTREP_SPY.
+
            exit.
 
       ******************************************************************
@@ -155,7 +175,7 @@
 
            move low-values to I_RunFunction
            move 'ZTPDOGOS' to moduleName in ZWS_RunFunction
-           call ZTESTUT using ZWS_RunFunction
+           call ZTESTUT using ZWS_RunFunction.
 
            exit.
 
@@ -206,7 +226,7 @@
            move low-values to I_Assert in ZWS_Assert
            move 'Invalid accumulator value(s) from ZTPDOGOS'
                 to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert
+           call ZTESTUT using ZWS_Assert.
 
            exit.
 
@@ -219,7 +239,7 @@
            move low-values to I_Assert in ZWS_Assert
            move 'Invalid OUTREP count from ZTTDOGWS'
                 to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert
+           call ZTESTUT using ZWS_Assert.
 
            exit.
 

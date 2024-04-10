@@ -97,8 +97,6 @@
 
                 display 'See workshop step 3.2 (#SPYWRITE)'
 
-                add 1 to OUTREP_SPY_WRITE_COUNT
-
       * Write the output record to SYSOUT for unit test debugging.
                 set address of ADOPTED-REPORT-REC
                    to ptr in record_ in ZLS_QSAM_Record

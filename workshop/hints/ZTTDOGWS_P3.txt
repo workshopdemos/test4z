@@ -124,7 +124,7 @@
            move low-values to I_MockQSAM
            move 'OUTREP' to fileName in ZWS_MockQSAM
            move 80 to recordSize in ZWS_MockQSAM
-           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_OUTREP
+           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_OUTREP.
 
            exit.
 
@@ -150,7 +150,7 @@
            move 'ADOPTS' to fileName in ZWS_MockQSAM
            set loadObject in ZWS_MockQSAM to loadObject in LOAD_Data
            move 80 to recordSize in ZWS_MockQSAM
-           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_ADOPTS
+           call ZTESTUT using ZWS_MockQSAM, qsamObject in MOCK_ADOPTS.
 
            exit.
 
@@ -164,7 +164,7 @@
            move low-values to I_SpyQSAM
            set callback in ZWS_SpyQSAM to entry 'spyCallbackOUTREP'
            move 'OUTREP' to fileName in ZWS_SpyQSAM
-           call ZTESTUT using ZWS_SpyQSAM, qsamSpyObject in OUTREP_SPY
+           call ZTESTUT using ZWS_SpyQSAM, qsamSpyObject in OUTREP_SPY.
 
            exit.
 
@@ -175,7 +175,7 @@
 
            move low-values to I_RunFunction
            move 'ZTPDOGOS' to moduleName in ZWS_RunFunction
-           call ZTESTUT using ZWS_RunFunction
+           call ZTESTUT using ZWS_RunFunction.
 
            exit.
 
@@ -226,7 +226,7 @@
            move low-values to I_Assert in ZWS_Assert
            move 'Invalid accumulator value(s) from ZTPDOGOS'
                 to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert
+           call ZTESTUT using ZWS_Assert.
 
            exit.
 
@@ -239,7 +239,7 @@
            move low-values to I_Assert in ZWS_Assert
            move 'Invalid OUTREP count from ZTTDOGWS'
                 to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert
+           call ZTESTUT using ZWS_Assert.
 
            exit.
 
