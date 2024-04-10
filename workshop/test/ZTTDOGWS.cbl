@@ -79,7 +79,7 @@
       ******************************************************************
            entry 'spyCallbackOUTREP' using SPY_CALLBACK_OUTREP.
 
-           display 'See workshop step 3.1 (SPY CALLBACK)'
+           display 'See workshop step 3.1 (#SPYCALLBACK)'
 
       * Map the linkage section to the address of the last record.
       *
@@ -95,7 +95,7 @@
            if command in ZLS_QSAM_Record = 'WRITE' and
                      statusCode in ZLS_QSAM_Record = '00'
 
-                display 'See workshop step 3.2 (SPY CALLBACK WRITE)'
+                display 'See workshop step 3.2 (#SPYWRITE)'
 
       * Write the output record to SYSOUT for unit test debugging.
                 set address of ADOPTED-REPORT-REC
@@ -107,7 +107,7 @@
       * When the file is closed, verify ZTPDOGOS' internal acculator.
 
            if command in ZLS_QSAM_RECORD = 'CLOSE'
-                display 'See workshop step 3.2 (SPY CALLBACK CLOSE)'
+                display 'See workshop step 3.3 (#SPYCLOSE)'
 
                 perform validateResults
            end-if
@@ -119,7 +119,7 @@
       ******************************************************************
        mockOUTREPFile.
 
-           display 'See workshop step 1.1 and step 1.2 (MOCK OUTREP)'
+           display 'See workshop step 1.1 and step 1.2 (#MOCKOUTREP)'
 
            exit.
 
@@ -130,12 +130,12 @@
 
       * Load data from a previous "live" recording.
 
-           display 'See workshop step 1.3 (LOAD RECORDED DATA)'
+           display 'See workshop step 1.3 (#LOADRECORDED)'
 
       * Initialize QSAM file access mock object for the ADOPTS DD
       * with the load object (data) created above.
 
-           display 'See workshop step 1.4 (MOCK ADOPTS)'
+           display 'See workshop step 1.4 (#MOCKADOPTS)'
 
            exit.
 
@@ -144,7 +144,7 @@
       ******************************************************************
        registerOUTREPFileSpy.
 
-           display 'See workshop step 2.1 and step 2.2 (REGISTER SPY)'
+           display 'See workshop step 2.1 and step 2.2 (#REGISTERSPY)'
 
            exit.
 
@@ -155,7 +155,7 @@
 
            move low-values to I_RunFunction
            move 'ZTPDOGOS' to moduleName in ZWS_RunFunction
-           call ZTESTUT using ZWS_RunFunction.
+           call ZTESTUT using ZWS_RunFunction
 
            exit.
 
@@ -166,7 +166,7 @@
 
       * Black box test - confirm the correct number of OUTREP records.
 
-           display 'See workshop step 3.3 (VALIDATE OUTREP)'
+           display 'See workshop step 3.3 (#VALIDATEOUTREP)'
 
            if OUTREP_SPY_WRITE_COUNT not = 9 then
              perform failOutrepWriteCount
@@ -174,7 +174,7 @@
 
       * Gray box test - get access to ZTPDOGOS' internal accumulator.
 
-           display 'See workshop step 3.4 (VALIDATE ACCUMULATOR)'
+           display 'See workshop step 3.4 (#VALIDATEACCUMULATOR)'
 
            move low-values to I_GetVariable
            move 'ACCUMULATOR' to variableName in ZWS_GetVariable
@@ -206,7 +206,7 @@
            move low-values to I_Assert in ZWS_Assert
            move 'Invalid accumulator value(s) from ZTPDOGOS'
                 to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert.
+           call ZTESTUT using ZWS_Assert
 
            exit.
 
@@ -219,6 +219,8 @@
            move low-values to I_Assert in ZWS_Assert
            move 'Invalid OUTREP count from ZTTDOGWS'
                 to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert.
+           call ZTESTUT using ZWS_Assert
+
+           exit.
 
        END PROGRAM 'ZTTDOGWS'.
