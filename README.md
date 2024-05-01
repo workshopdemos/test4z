@@ -9,7 +9,25 @@ For this exercise, you'll follow these top-level steps:
 * Part 3: Add pass/fail checks to the unit test (assert API)
 * Part 4: Run final test (optionally make it fail).
 
-Detailed step-by-steps instructions are available in the [Test4z Tutorial - Exercise](./Test4z-Workshop.pdf). If you would like a short introduction to Test4z, check out the [Test4z Tutorial - Primer](./Test4z-Primer.pdf).
+### Getting started
+
+To complete this exercise, you have two options:
+
+1. Detailed step-by-step instructions in the [Test4z Tutorial - Exercise](./Test4z-Workshop.pdf) (PDF)
+2. A short ["code along"](https://www.youtube.com/watch?v=0hFXFf17kEI) video on YouTube (13 minutes).
+
+If you would like a short introduction to Test4z, check out the [Test4z Tutorial - Primer](./Test4z-Primer.pdf).
+
+### Installation steps
+
+Follow these steps to copy the exercise source files:
+1. Clone this repository.
+2. In Visual Studio Code, open a new window on the `workshop` folder (_File &gt; New Window_ followed by _File &gt; Open Folder..._)
+3. If you have already installed Test4z, replace these files with your own local versions:
+  - `test4z.project.config.json`
+  - `test4z.user.config.json`
+  - `.vscode/settings.json`
+  If you have not installed Test4z before, delete the above files from the cloned repository folder and run the Test4z installation command `t4z init`. It will prompt you for the installation parameters (host name, user name, HLQ, etc.).
 
 Also see:
 
