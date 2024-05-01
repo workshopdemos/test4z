@@ -15,15 +15,15 @@ Ready to write some code? Let's do it!
 
 To complete this exercise, you have two options:
 
-1. Detailed step-by-step instructions in the [Test4z Tutorial - Exercise](./Test4z-Workshop.pdf) (PDF)
+1. Detailed step-by-step instructions in the [Test4z Tutorial - Exercise](https://github.com/workshopdemos/test4z/blob/main/Test4z-Workshop.pdf) (PDF)
 2. A short ["code along"](https://www.youtube.com/watch?v=0hFXFf17kEI) video on YouTube (13 minutes).
 
-If you would like a short introduction to Test4z, check out the [Test4z Tutorial - Primer](./Test4z-Primer.pdf).
+If you would like a short introduction to Test4z, check out the [Test4z Tutorial - Primer](https://github.com/workshopdemos/test4z/blob/main/Test4z-Primer.pdf) (PDF).
 
 ### Installation steps
 
 Follow these steps to copy the exercise source files:
-1. Clone this repository.
+1. Clone the [workshopdemos/test4z](https://github.com/workshopdemos/test4z) repository.
 2. In Visual Studio Code, open a new window on the `workshop` folder (_File &gt; New Window_ followed by _File &gt; Open Folder..._)
 3. If you have already installed Test4z, replace these files with your own local versions:
 
