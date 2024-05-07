@@ -217,16 +217,16 @@
 
            exit.
 
-      ******************************************************************
+     ******************************************************************
       * Signal failure checking the internal ZTPDOGOS accumulator.
       ******************************************************************
        failInternalAccumulator.
 
            display 'Invalid accumulator value(s) ' ZTPDOGOS-ACCUMULATOR
-           move low-values to I_Assert in ZWS_Assert
+           move low-values to I_Fail in ZWS_Fail
            move 'Invalid accumulator value(s) from ZTPDOGOS'
-                to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert.
+                to failMessage in ZWS_Fail
+           call ZTESTUT using ZWS_Fail.
 
            exit.
 
@@ -236,10 +236,10 @@
        failOutrepWriteCount.
 
            display 'OUTREP record count is ' OUTREP_SPY_WRITE_COUNT.
-           move low-values to I_Assert in ZWS_Assert
+           move low-values to I_Fail in ZWS_Fail
            move 'Invalid OUTREP count from ZTTDOGWS'
-                to failMessage in ZWS_Assert
-           call ZTESTUT using ZWS_Assert.
+                to failMessage in ZWS_Fail
+           call ZTESTUT using ZWS_Fail.
 
            exit.
 
