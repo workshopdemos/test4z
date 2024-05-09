@@ -15,10 +15,10 @@ Ready to write some code? Let's do it!
 
 To complete this exercise, you have two options:
 
-1. Detailed step-by-step instructions in the [Test4z Tutorial - Exercise](https://github.com/workshopdemos/test4z/blob/main/Test4z-Workshop.pdf) (PDF)
+1. Detailed step-by-step instructions in the [Test4z Tutorial - Exercise](https://github.com/workshopdemos/test4z/docs/blob/main/Test4z-Workshop.pdf) (PDF)
 2. A short ["code along"](https://www.youtube.com/watch?v=0hFXFf17kEI) video on YouTube (13 minutes).
 
-If you would like a short introduction to Test4z, check out the [Test4z Tutorial - Primer](https://github.com/workshopdemos/test4z/blob/main/Test4z-Primer.pdf) (PDF).
+If you would like a short introduction to Test4z, check out the [Test4z Tutorial - Primer](https://github.com/workshopdemos/test4z/docs/blob/main/Test4z-Primer.pdf) (PDF).
 
 ### Installation steps
 
