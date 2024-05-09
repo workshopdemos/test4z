@@ -1,0 +1,860 @@
+{
+  "codepage": 1140,
+  "ignorelist": [],
+  "calls": [
+    {
+      "program": {
+        "command": "CALL",
+        "module": "ZTPDOGOS",
+        "csect": "ZTPDOGOS",
+        "before": {},
+        "calls": [
+          {
+            "qsam": {
+              "command": "OPEN INPUT",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000704"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "OPEN OUTPUT",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "000007BE"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "0000086A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "SHIBA",
+                    {
+                      "repeat": 50,
+                      "data": " "
+                    },
+                    "006                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "0000086A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "CORGI",
+                    {
+                      "repeat": 50,
+                      "data": " "
+                    },
+                    "007                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "0000086A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "CHI",
+                    {
+                      "repeat": 52,
+                      "data": " "
+                    },
+                    "001                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "0000086A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "SHIBA",
+                    {
+                      "repeat": 50,
+                      "data": " "
+                    },
+                    "002                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "0000086A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                },
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "JINGO",
+                    {
+                      "repeat": 50,
+                      "data": " "
+                    },
+                    "006                      "
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "READ",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "0000086A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "10"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "10"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "10"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED SHIBA",
+                    {
+                      "repeat": 26,
+                      "data": " "
+                    },
+                    "WAS ADOPTED 008 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED SCHNAUZER                      WAS ADOPTED 000 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED CORGI",
+                    {
+                      "repeat": 26,
+                      "data": " "
+                    },
+                    "WAS ADOPTED 007 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED CHI",
+                    {
+                      "repeat": 28,
+                      "data": " "
+                    },
+                    "WAS ADOPTED 001 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED POODLE",
+                    {
+                      "repeat": 25,
+                      "data": " "
+                    },
+                    "WAS ADOPTED 000 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED POMERANIAN                     WAS ADOPTED 000 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED BULLDOG",
+                    {
+                      "repeat": 24,
+                      "data": " "
+                    },
+                    "WAS ADOPTED 000 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED JINGO",
+                    {
+                      "repeat": 26,
+                      "data": " "
+                    },
+                    "WAS ADOPTED 006 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "WRITE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {
+                "ioarea": {
+                  "length": 80,
+                  "value": [
+                    "BREED OTHER",
+                    {
+                      "repeat": 26,
+                      "data": " "
+                    },
+                    "WAS ADOPTED 000 TIMES",
+                    {
+                      "repeat": 22,
+                      "hex": true,
+                      "data": "00"
+                    }
+                  ]
+                }
+              },
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000C5A"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "CLOSE",
+              "module": "ZTPDOGOS",
+              "dd": "ADOPTS",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000D1E"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          },
+          {
+            "qsam": {
+              "command": "CLOSE",
+              "module": "ZTPDOGOS",
+              "dd": "OUTREP",
+              "before": {},
+              "cputime": "0.000000",
+              "from": {
+                "csect": "ZTPDOGOS",
+                "offset": "00000D66"
+              },
+              "after": {
+                "cc": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status": {
+                  "length": 1,
+                  "value": {
+                    "hex": true,
+                    "data": "00"
+                  }
+                },
+                "status1": {
+                  "length": 2,
+                  "value": "00"
+                }
+              }
+            }
+          }
+        ],
+        "cputime": "3.380386",
+        "from": {
+          "csect": "UNKNOWN",
+          "offset": "0000038A"
+        },
+        "retcd": 0,
+        "after": {}
+      }
+    }
+  ],
+  "qsamdata": {
+    "qsamlist": [
+      {
+        "file": "ADOPTS",
+        "maxlength": 80
+      },
+      {
+        "file": "OUTREP",
+        "maxlength": 80
+      }
+    ]
+  }
+}

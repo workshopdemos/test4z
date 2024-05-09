@@ -1,0 +1,17 @@
+# Following files and directories will not be uploaded to remote z/OS system:
+  __pycache__/
+  .coverage*
+  .py*
+  .vscode*
+  *.lock
+  *.log
+  *.md
+  coverage
+  node_modules/
+  out/
+  .gitignore
+  .t4z-capture/
+# These sample files are not uploaded because they are not supported by the Test4z CLI yet:
+  test/ZTTCICSR.cbl
+  # This is a sample program that is not a test suite:
+  test/ZTTRECRD.cbl

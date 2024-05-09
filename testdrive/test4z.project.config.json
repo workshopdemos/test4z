@@ -1,0 +1,17 @@
+{
+  "appLoadLibraries": [],
+  "bindSyslibs": [
+    "CEE.SCEELKED"
+  ],
+  "copyPaths": [
+    "src/cpy"
+  ],
+  "cobolDb2ProgramsGlobs": [
+    "src/ZTDB2*.cbl"
+  ],
+  "db2TestGlobs": [
+    "test/ZTTDB2SR.cbl",
+    "test/ZTTMOCKD.cbl"
+  ],
+  "sdsnload": null
+}
