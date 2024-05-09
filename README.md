@@ -1,4 +1,3 @@
-
 Test4z challenges the notion that high-quality testing is inherently time-consuming by offering a solution that accelerates the development process.
 If you would like to learn more about unit testing with Test4z, this repository includes an exercise presented in three different lengths:
 
@@ -9,9 +8,9 @@ steps to give you a better idea of working with Test4z. It will take less than 1
 * [Test4z "code along"](https://www.youtube.com/watch?v=0hFXFf17kEI) - this 13 minute YouTube video is a step-by-step exercise
 that you can follow along as you code. It will take around 30 minutes to complete the exercise steps in your Visual Studio Code environment.
 
-<img src="images/test4z-logo.png" width="500px" alt="Test4z" >
+<img src="images/test4z-logo.png" width="500px" alt="Test4z" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" >
 
-References:
+### References
 
 * [Test4z homepage](https://mainframe.broadcom.com/test4z)
 * [Test4z 1.0 documentation](https://techdocs.broadcom.com/us/en/ca-mainframe-software/devops/test4z/1-0.html)
