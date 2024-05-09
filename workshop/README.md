@@ -33,7 +33,7 @@ Follow these steps to copy the exercise source files:
   
   If you have not installed Test4z before, delete the above files from the cloned repository folder and run the Test4z installation command `t4z init`. It will prompt you for the installation parameters (host name, user name, HLQ, etc.).
 
-Also see:
+### References
 
 * [Test4z homepage](https://mainframe.broadcom.com/test4z)
 * [Test4z 1.0 documentation](https://techdocs.broadcom.com/us/en/ca-mainframe-software/devops/test4z/1-0.html)

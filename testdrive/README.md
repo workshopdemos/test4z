@@ -23,7 +23,7 @@ Follow these steps to copy the exercise source files:
   
   If you have not installed Test4z before, delete the above files from the cloned repository folder and run the Test4z installation command `t4z init`. It will prompt you for the installation parameters (host name, user name, HLQ, etc.).
 
-### References:
+### References
 
 * [Test4z Tutorial](https://github.com/workshopdemos/test4z/tree/main/workshop)
 * [Test4z "code along"](https://www.youtube.com/watch?v=0hFXFf17kEI) video on YouTube (13 minutes).
