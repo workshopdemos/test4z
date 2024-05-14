@@ -4,9 +4,9 @@
   "sshPort": 2022,
   "user": "cust045",
   "sshKeyFile": "/home/developer/.ssh/id_test4z",
-  "zosWorkspacePath": "/u/users/cust045/workshop",
+  "zosWorkspacePath": "/u/users/cust045/testdrive",
   "createZfs": false,
-  "testHlq": "CUST045.WORKSHOP",
+  "testHlq": "CUST045.TESTDRIVE",
   "zosCodepage": 1140,
   "test4zRuntimeHlq": null
 }
