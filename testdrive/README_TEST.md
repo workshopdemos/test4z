@@ -14,21 +14,21 @@
 ## Test the DOGGOS application
  
 From the VS Code Explorer, Open the TestDrive Folder. Reference screenshots: 
-<img src='images/devx/devx1.png' width='65%'>        
+<img src='test4z/images/devx/devx1.png' width='65%'>        
 
-<img src='images/devx/devx2.png' width='65%'>
+<img src='test4z/images/devx/devx2.png' width='65%'>
 
 ## Generate Test coverage report 
 
 Right click on the Test Folder and select “Test4z Run All Tests with Coverage”. Reference screenshot: 
 
-<img src='images/devx/devx3.png' width='65%'>
+<img src='test4z/images/devx/devx3.png' width='65%'>
 
 This will generate the report.
 
-<img src='images/devx/devx4.png' width='65%'>
+<img src='test4z/images/devx/devx4.png' width='65%'>
 
-<img src='images/devx/devx5.png' width='65%'>
+<img src='test4z/images/devx/devx5.png' width='65%'>
 
 Under the src → cpy folder.       
 Open the source code file "ZTPDOGOS.cbl".            
