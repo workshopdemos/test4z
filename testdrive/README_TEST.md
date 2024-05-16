@@ -1,10 +1,5 @@
 ## Test the DOGGOS application
  
-From the VS Code Explorer, Open the TestDrive Folder. Reference screenshots: 
-<img src='../images/devx/devx1.png' width='65%'>        
-
-<img src='../images/devx/devx2.png' width='65%'>
-
 ## Generate Test coverage report 
 
 Right click on the Test Folder and select “Test4z Run All Tests with Coverage”. Reference screenshot: 
