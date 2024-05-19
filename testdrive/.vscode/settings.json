@@ -10,6 +10,5 @@
       ],
       "url": "file:///usr/lib/node_modules/@broadcom/test4z-framework/schema/test4z.config.json"
     }
-  ],
-  "zowe.security.secureCredentialsEnabled": false
+  ]
 }
