@@ -19,7 +19,7 @@ This will generate the report.
 
 <img src='../images/devx/devx5.png' width='65%'>
 
-Under the src → cpy folder.       
+From the Explorer tab, Open the src folder.       
 Open the source code file "ZTPDOGOS.cbl".            
 VSCode Coverage Gutters in the source code file are observed. 
 
