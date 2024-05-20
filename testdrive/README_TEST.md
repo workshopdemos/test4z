@@ -88,6 +88,6 @@ Select “ZLMSG.txt” file from the “test-out” folder. This file contains t
 
 #### Conclusion
 
-This demo scenario shows how to generate a test coverate report, edit a test case and add statements to a test file. 
+This demo scenario shows how to generate a test coverage report, edit a test case and add statements to a test file. 
 
 
