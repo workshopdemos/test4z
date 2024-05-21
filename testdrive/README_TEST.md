@@ -1,19 +1,20 @@
-# Test Challenge
+# Testing Experience
 
-## Test the DOGGOS application
- 
-From the VS Code Explorer, Open the TestDrive Folder. Reference screenshots: 
-<img src='images/devx/devx1.png' width='65%'>        
+This scenario is a test drive of how testing experience looks like when you use Test4z framework to unit test your application.
+The application under test is DOGGOS, which should look familliar if you went through one of our Developer Experience workshops before.
+We are going to go through some common tasks developers meet in their daily life.
+Also we are going to see how Test4z extends the VSCode functionality so dealing with unit tests is easier.
 
-<img src='images/devx/devx2.png' width='65%'>
+## Run tests and generate Test Coverage Report 
 
-## Generate Test coverage report 
+Let's start with the positive scenario when tests are there, they are passing, and the only thing developer has to worry about is reporting the level of code coverage.
 
-Right click on the Test Folder and select “Test4z Run All Tests with Coverage”. Reference screenshot: 
+Right click on the "test" folder and select “Test4z Run All Tests with Coverage”. Reference screenshot: 
 
 <img src='images/devx/devx3.png' width='65%'>
 
-This will generate the report.
+This will run tests and generate the report.
+Take your time and look through the data presented in the report.
 
 <img src='images/devx/devx4.png' width='65%'>
 
@@ -21,34 +22,45 @@ This will generate the report.
 
 From the Explorer tab, Open the src folder.       
 Open the source code file "ZTPDOGOS.cbl".            
-VSCode Coverage Gutters in the source code file are observed. 
+VSCode Coverage Gutters in the source code file are observed.
+When test results are available, Test4z is going to present the test coverage info as you navigate through the code.
 
 <img src='images/devx/devx6.png' width='65%'>
 
-## Edit a Test case 
+## Failing the test 
 
-Open the ZTTDOGWS.cbl file under test → data folder
+We have seen what happens when things go well and tests are passing, but what if they fail? 
+What kind of information developer is going to see in that case?
+Let's see.
+
+Open the ZTTDOGWS.cbl file under "test" folder
 
 <img src='images/devx/devx7.png' width='65%'>
 
-Go to line number 196.      
-Change the value from 9 to 900.      
+Go to line number 192.
+Locate a code block which looks like the one on the screenshot. 
+Change the value from 9 to 900.
+Save the file.
 Reference screenshot: 
 
 <img src='images/devx/devx8.png' width='65%'>
 
-From the command line, run the “t4z” command.     
+From the command line, run the “t4z” command.
+As you can see, tests can be executed not only from UI, but also via command line, handy when you want to integrate them with something like Jenkins pipeline.
+
 Reference screenshot: 
 
 <img src='images/devx/devx9.png' width='65%'>
 
 <img src='images/devx/devx10.png' width='65%'>
 
-You will observe that the test run is a failure. Expected Record count is 9 whereas we edited the value to be 900.
+You will observe that the test run fails. The reason is that expected Record count is 9 whereas we edited the value to be 900.
 
 ## Add statements to Test File
 
-Open the ZTTDOGWS.cbl file under test → data folder
+Now let's see how Test4z extends VSCode intellisense to enhance the test editing experience.
+
+Open the ZTTDOGWS.cbl file under "test" folder
 
 Go to line 51 (Be under the PROCEDURE DIVISION section). Reference Screenshot: 
 
@@ -71,8 +83,12 @@ Replace “Your Message” with “Hello Test4z” and save the file.
 
 <img src='images/devx/devx14.png' width='65%'>
 
-Go to line number 196.      
-Change the value from 900 to 9.     
+Let's fix the test so it is not failing again.
+
+Go to line number 192.      
+Locate a code block which looks like the one on the screenshot. 
+Change the value back from 900 to 9.
+Save the file.
 Reference screenshot: 
 
 <img src='images/devx/devx15.png' width='65%'>
@@ -88,6 +104,6 @@ Select “ZLMSG.txt” file from the “test-out” folder. This file contains t
 
 #### Conclusion
 
-This demo scenario shows how to generate a test coverage report, edit a test case and add statements to a test file. 
+This demo scenario shows how to generate a test coverage report, edit, fail a test case and add statements to a test file. 
 
 
