@@ -8,7 +8,7 @@ steps to give you a better idea of working with Test4z. It will take less than 1
 * [Test4z "code along"](https://www.youtube.com/watch?v=0hFXFf17kEI) - this 13 minute YouTube video is a step-by-step exercise
 that you can follow along as you code. It will take around 30 minutes to complete the exercise steps in your Visual Studio Code environment.
 
-<img src="images/test4z-logo.png" width="500px" alt="Test4z" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" >
+<img src="testdrive/images/test4z-logo.png" width="500px" alt="Test4z" style="display: block; margin-left: auto; margin-right: auto; width: 50%;" >
 
 ### References
 
