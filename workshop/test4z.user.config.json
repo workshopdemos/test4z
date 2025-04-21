@@ -1,12 +1,12 @@
 {
-  "sdkHome": "/usr/lib/node_modules/@broadcom/test4z-framework",
-  "hostname": "10.1.2.55",
-  "sshPort": 2022,
-  "user": "cust###",
-  "sshKeyFile": "/home/developer/.ssh/id_test4z",
-  "zosWorkspacePath": "path",
+  "sdkHome": "/opt/homebrew/lib/node_modules/@broadcom/test4z-framework",
+  "hostname": "usilca31.lvn.broadcom.net",
+  "sshPort": 22,
+  "user": "dk896808",
+  "sshKeyFile": "/Users/dan/.ssh/id_rsa",
+  "zosWorkspacePath": "/z/dk896808/workshop",
   "createZfs": false,
-  "testHlq": "CUST###.WORKSHOP",
+  "testHlq": "DK896808.WORKSHOP",
   "zosCodepage": 1140,
-  "test4zRuntimeHlq": "PRODUCT.TEST4Z"
+  "test4zRuntimeHlq": null
 }
