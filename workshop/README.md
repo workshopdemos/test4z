@@ -1,4 +1,4 @@
-## Test4z Workshop - Tutorial and Exercise 
+## Test4z Workshop - Tutorial and Exercise
 
 For many developers, testing is viewed as a necessary but time-consuming task. Why is that? It's because testing COBOL applications often involves numerous manual steps or setting up complex input data scenarios. Test4z challenges the notion that high-quality testing is inherently time-consuming by offering a solution that accelerates the development process.
 
@@ -23,16 +23,16 @@ If you would like a short introduction to Test4z, check out the [Test4z Tutorial
 ### Installation steps
 
 Follow these steps to copy the exercise source files:
-1. Clone the [workshopdemos/test4z](https://github.com/workshopdemos/test4z) repository.
+1. Clone the [workshopdemos/test4z](https://github.com/workshopdemos/test4z) repository (or select _Code &gt; Download ZIP_)
 2. In Visual Studio Code, open a new window on the `workshop` folder (_File &gt; New Window_ followed by _File &gt; Open Folder..._)
 3. If you have already installed Test4z, replace these files with your own local versions:
 
   - `test4z.project.config.json`
   - `test4z.user.config.json`
   - `.vscode/settings.json`
-  
+
   If you have not installed and configured Test4z before, delete the above files from the cloned repository folder. Refer to these steps:
-  
+
   1. [Install](https://techdocs.broadcom.com/us/en/ca-mainframe-software/devops/test4z/1-0/installing/install-test4z-command-line-interface.html) the Test4z command line interface
   2. Initialize the Visual Studio Code extension (`t4z install-vscode-extensions`)
   3. Configure the VS Code environment (`t4z init`).
