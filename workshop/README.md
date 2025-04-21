@@ -40,6 +40,22 @@ Follow these steps to copy the exercise source files:
   The Test4z installation command `t4z init` regenerates the configuration
   files above based on your responses (host name, user name, HLQ, etc.).
 
+### Test4z configuration
+
+The `t4z init` command will prompt for all the necessary fields to run Test4z. Below is brief summary of the fields in `test4z.user.config.json`:
+
+* `sdkHome` = [same value as `home` field from `t4z home` command]
+* `hostname` = your host URL or IP address for USS
+* `sshPort` = SSH port, default is 22
+* `user` = your host login ID
+* `sshKeyFile` = your public SSH key file located in .ssh directory
+* `zosWorkspacePath` = USS directory,  e.g., `/z/your-login-id/workshop`
+* `testHlq` = TSO data set, e.g., `your-login-id.WORKSHOP`
+* `zosCodePage` = code page, default is 1140
+* `test4zRuntimeHlq` = null (or HLQ of data set containing installed Test4z runtime)
+
+For the workshop, the field values for `test4z.project.config.json` do not need to be updated.
+
 ### References
 
 * [Test4z homepage](https://mainframe.broadcom.com/test4z)
